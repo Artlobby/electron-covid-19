@@ -1,0 +1,23 @@
+{
+    "name": "app",
+    "version": "1.0.0",
+    "description": "\"A electron js project to provide the different data of Covid-19 from different countries.\"",
+    "main": "main.js",
+    "scripts": {
+        "start": "node_modules\\electron\\dist\\electron.exe main.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rodolfoAlejandro/electron-covid-19.git"
+    },
+    "author": "Rodolfo A. Castillo",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/rodolfoAlejandro/electron-covid-19/issues"
+    },
+    "homepage": "https://github.com/rodolfoAlejandro/electron-covid-19#readme",
+    "dependencies": {
+        "jquery": "^3.4.1"
+    }
+}

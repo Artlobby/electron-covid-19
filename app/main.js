@@ -1,10 +1,13 @@
 const { app, BrowserWindow } = require('electron');
+const path = require('path');
+
 
 function createWindow() {
     // Create the browser window.
     const win = new BrowserWindow({
         width: 800,
         height: 600,
+        icon: path.join(__dirname, 'virus.ico'),
         webPreferences: {
             nodeIntegration: true
         }

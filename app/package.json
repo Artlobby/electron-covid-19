@@ -6,8 +6,7 @@
     "scripts": {
         "start": "node_modules\\electron\\dist\\electron.exe main.js",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "pack": "electron-builder --dir",
-        "dist": "electron-builder"
+        "build": "electron-packager"
     },
     "repository": {
         "type": "git",
@@ -22,18 +21,12 @@
     "dependencies": {
         "bootstrap": "^4.4.1",
         "chart.js": "^2.9.3",
-        "electron-builder": "^22.4.1",
         "font-awesome": "^4.7.0",
         "jquery": "^3.4.1",
         "popper.js": "^1.16.0"
     },
     "devDependencies": {
-        "electron": "^8.1.1"
-    },
-    "build": {
-        "appId": "yellow-lab",
-        "windows": {
-            "target": "portable"
-        }
+        "electron": "^8.1.1",
+        "electron-packager": "^14.2.1"
     }
 }

@@ -105,3 +105,6 @@ dist
 
 # VS Code
 .vscode/
+
+# Build executable
+electron-covid-19-win32-x64/

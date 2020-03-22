@@ -13,44 +13,52 @@
     <script src="node_modules\chart.js\dist\Chart.bundle.min.js" type="text/javascript"></script>
 </head>
 
-<body style="background-color: #2c3e50;">
-    <h1 class="text-white"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>COVID-19</h1>
-    <div class="row text-center">
-        <!-- Total Confirmed -->
-        <div class="col-sm">
-            <div class="card bg-secondary">
-                <div class="card-body">
-                    <h5 class="card-title">Total Confirmed</h5>
-                    <h1 class="card-text" style="color: #e74c3c;" id="cardConfirmed"></h1>
+<body style="background-color: #16a085;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h1 style="color: #d35400;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>COVID-19</h1>
+            </div>
+        </div>
+        <div class="row text-center">
+            <!-- Total Confirmed -->
+            <div class="col-sm">
+                <div class="card" style="background-color: #f1c40f; border-color: #16a085;">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Cases</h5>
+                        <h1 class="card-text text-white" role="status" id="cardConfirmed"></h1>
+                    </div>
+                </div>
+            </div>
+            <!-- Total Deaths -->
+            <div class="col-sm">
+                <div class="card" style="background-color: #f1c40f; border-color: #16a085;">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Deaths</h5>
+                        <h1 class="card-text text-white border-spinner" id="cardDeaths"></h1>
+                    </div>
+                </div>
+            </div>
+            <!-- Total Recovered -->
+            <div class="col-sm">
+                <div class="card" style="background-color: #f1c40f; border-color: #16a085;">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Recovered</h5>
+                        <h1 class="card-text text-white border-spinner" id="cardRecovered"></h1>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- Total Deaths -->
-        <div class="col-sm">
-            <div class="card bg-secondary">
-                <div class="card-body">
-                    <h5 class="card-title">Total Deaths</h5>
-                    <h1 class="card-text" style="color: #ecf0f1;" id="cardDeaths"></h1>
-                </div>
+        <div class="row">
+            <div class="col-sm">
+                <canvas id="donut"></canvas>
             </div>
         </div>
-        <!-- Total Recovered -->
-        <div class="col-sm">
-            <div class="card bg-secondary">
-                <div class="card-body">
-                    <h5 class="card-title">Total Recovered</h5>
-                    <h1 class="card-text" style="color: #2ecc71" id="cardRecovered"></h1>
-                </div>
-            </div>
-        </div>
+        <footer class="footer">
+            <p class="text-white text-center">Developed by Yellow Lab - MIT License</p>
+        </footer>
+        <script type="text/javascript" src="view.js"></script>
     </div>
-    <div class="row">
-        <div class="col-sm">
-            <canvas id="donut"></canvas>
-        </div>
-    </div>
-    <script type="text/javascript" src="view.js"></script>
-    <p class="text-center text-white">Data provide by John Hopkins' COVID-19 API</p>
 </body>
 
 </html>

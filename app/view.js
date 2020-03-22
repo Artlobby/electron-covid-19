@@ -1,45 +1,47 @@
 let $ = require('jquery');
 let Chart = require('chart.js');
-let fs = require('fs');
-const path = require('path');
-
-var data = null;
+Chart.platform.disableCSSInjection = true;
 
 $(document).ready(() => {
-    $.ajax({
-        url: 'https://covid2019-api.herokuapp.com/v2/total',
+    console.log('Document ready!');
+    $.when(ajaxCall('https://corona.lmao.ninja/all')).done(function(total) {
+        displayData(total);
+    });
+});
+
+function ajaxCall(url) {
+    return $.ajax({
+        url: url,
         success: function(result) {
-            var file = path.join(__dirname, 'data.json');
-            displayData(result);
             return result;
         },
         error: function(error) {
             console.log(error);
         }
     });
-});
+}
+
 
 function displayData(result) {
     var ctx = $('#donut');
-    $.each(result, function(i, item) {
-        var confirmed = item.confirmed;
-        var deaths = item.deaths;
-        var recovered = item.recovered;
-        $('#cardConfirmed').text(confirmed);
-        $('#cardDeaths').text(deaths);
-        $('#cardRecovered').text(recovered);
+    var cases = result.cases;
+    var deaths = result.deaths;
+    var recovered = result.recovered;
 
-        var donut = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Confirmed', 'Deaths', 'Recovered'],
-                datasets: [{
-                    label: '# of Totals',
-                    data: [confirmed, deaths, recovered],
-                    backgroundColor: ['#e74c3c', '#ecf0f1', '#2ecc71'],
-                    borderColor: ['#e74c3c', '#ecf0f1', '#2ecc71']
-                }]
-            }
-        });
+    $('#cardConfirmed').text(cases);
+    $('#cardDeaths').text(deaths);
+    $('#cardRecovered').text(recovered);
+
+    var donut = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Cases', 'Deaths', 'Recovered'],
+            datasets: [{
+                label: '# of Totals',
+                data: [cases, deaths, recovered],
+                backgroundColor: ['#e74c3c', '#2980b9', '#2ecc71'],
+                borderColor: ['#e74c3c', '#2980b9', '#2ecc71']
+            }]
+        }
     });
-};
+}

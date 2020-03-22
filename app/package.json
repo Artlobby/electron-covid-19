@@ -6,7 +6,7 @@
     "scripts": {
         "start": "node_modules\\electron\\dist\\electron.exe main.js",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "electron-packager"
+        "build": "electron-packager . electron-covid-19 --platform=win32 --overwrite --icon=assets\\virus.ico"
     },
     "repository": {
         "type": "git",

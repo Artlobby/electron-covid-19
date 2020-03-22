@@ -7,6 +7,7 @@ function createWindow() {
     const win = new BrowserWindow({
         width: 800,
         height: 600,
+        titleBarStyle: "hidden",
         autoHideMenuBar: true,
         icon: path.join(__dirname, 'assets/virus.ico'),
         webPreferences: {

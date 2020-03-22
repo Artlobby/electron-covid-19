@@ -13,20 +13,23 @@
     <script src="node_modules\chart.js\dist\Chart.bundle.min.js" type="text/javascript"></script>
 </head>
 
-<body style="background-color: #16a085;">
-    <div class="container">
+<body style="background-color: #1abc9c;">
+    <nav class="navbar navbar-expand-lg" style="background-color: #16a085;">
         <div class="row">
             <div class="col-sm">
-                <h1 style="color: #d35400;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>COVID-19</h1>
+                <h1 class="navbar-brand" style="color: #d35400;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>COVID-19</h1>
             </div>
         </div>
-        <div class="row text-center">
+        <button id="btnRefresh" class="btn btn-outline-light my-2 my-sm-0 circle" data-toggle="tooltip" title="Refresh"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+    </nav>
+    <div class="container">
+        <div class="row text-center my-2">
             <!-- Total Confirmed -->
             <div class="col-sm">
                 <div class="card shadow rounded" style="background-color: #f1c40f; border-color: #16a085;">
                     <div class="card-body">
                         <h5 class="card-title">Total Cases</h5>
-                        <h1 class="card-text text-white" role="status" id="cardConfirmed"></h1>
+                        <h1 class="card-text text-white border-spinner" role="status" id="cardConfirmed"></h1>
                     </div>
                 </div>
             </div>
@@ -49,16 +52,21 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row my-6">
             <div class="col-sm">
                 <canvas id="donut"></canvas>
             </div>
         </div>
-        <footer class="footer">
-            <p class="text-white text-center">Developed by Yellow Lab - MIT License</p>
-        </footer>
-        <script type="text/javascript" src="view.js"></script>
+        <div class="row">
+            <div class="col-sm">
+                <canvas id="map"></canvas>
+            </div>
+        </div>
     </div>
+    <footer class="footer">
+        <p class="text-white text-center">Developed by Yellow Lab - MIT License</p>
+    </footer>
+    <script type="text/javascript" src="view.js"></script>
 </body>
 
 </html>

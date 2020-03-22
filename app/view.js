@@ -1,11 +1,19 @@
-let $ = require('jquery');
-let Chart = require('chart.js');
+var $ = require('jquery');
+var Chart = require('chart.js');
+
 Chart.platform.disableCSSInjection = true;
 
 $(document).ready(() => {
-    console.log('Document ready!');
-    $.when(ajaxCall('https://corona.lmao.ninja/all')).done(function(total) {
-        displayData(total);
+    $.when(ajaxCall('https://corona.lmao.ninja/all'), ajaxCall('https://corona.lmao.ninja/countries')).done(function(total, countries) {
+        displayData(total[0]);
+        displayMap(countries[0]);
+    });
+});
+
+$('#btnRefresh').on('click', () => {
+    $.when(ajaxCall('https://corona.lmao.ninja/all'), ajaxCall('https://corona.lmao.ninja/countries')).done(function(total, countries) {
+        displayData(total[0]);
+        displayMap(countries[0]);
     });
 });
 
@@ -21,8 +29,8 @@ function ajaxCall(url) {
     });
 }
 
-
 function displayData(result) {
+    var donut = null;
     var ctx = $('#donut');
     var cases = result.cases;
     var deaths = result.deaths;
@@ -32,7 +40,7 @@ function displayData(result) {
     $('#cardDeaths').text(deaths);
     $('#cardRecovered').text(recovered);
 
-    var donut = new Chart(ctx, {
+    donut = new Chart(ctx, {
         type: 'doughnut',
         data: {
             labels: ['Cases', 'Deaths', 'Recovered'],

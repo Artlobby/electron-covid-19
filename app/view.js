@@ -47,8 +47,8 @@ function displayData(result) {
             datasets: [{
                 label: '# of Totals',
                 data: [cases, deaths, recovered],
-                backgroundColor: ['#e74c3c', '#2980b9', '#2ecc71'],
-                borderColor: ['#e74c3c', '#2980b9', '#2ecc71']
+                backgroundColor: ['#BDFFF3', '#2980b9', '#4AC29A'],
+                borderColor: ['#BDFFF3', '#2980b9', '#4AC29A']
             }]
         }
     });
